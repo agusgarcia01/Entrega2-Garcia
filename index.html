@@ -4,14 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="style/style.css">
     <title>Entrega1 | Garcia</title>
 </head>
 <body>
-    <h1><span>Entrega 1</span></h1>
-    <hr />
-    <h2>Agustin Garcia</h2>
-    <p>Simulador de ticketera virtual</p>
-    <script src="./js/main.js"></script>
+
+    <header>
+        <h1><span>TicketMaster</span></h1>
+        <hr />
+        <h2>Ticketera Virtual</h2>
+       <button id="btnCarrito">
+           🛒 <span id="contadorCarrito">0</span>
+       </button>
+    </header>
+
+    <div id="carrito" class="carrito oculto">
+        <h3>Tu Carrito</h3>
+        <button id="btnCerrar">X</button>
+
+        <ul id="listaCarrito"></ul>
+
+        <p id="totalCarrito">Total: $0</p>
+
+        <button id="btnComprar">Comprar</button>
+        <button id="btnVaciar">Vaciar</button>
+        <p id="timerCarrito" class="timerCarrito">Tiempo restante: 10:00</p>
+
+    </div>
+
+    <main>
+        <a href="admin.html"><button>Admin</button></a>
+        <a href="user.html"><button>User</button></a>
+
+        <div id="contenedor"></div>
+    </main>
+
+
+
+
+    <script src="js/main.js"></script>
 </body>
 </html>

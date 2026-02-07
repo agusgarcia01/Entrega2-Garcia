@@ -5,3 +5,144 @@ h1 span {
     font-style: bold;
     font-weight: 700;
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Contenedor de las cards */
+#contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Card */
+.card {
+    width: 260px;
+    background-color: #d1d1d1;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Separador */
+.card hr {
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+/* Título */
+.card h3 {
+    font-size: 1.2rem;
+    margin: 10px;
+    text-align: center;
+}
+
+/* Precio */
+.card p {
+    margin: 10px;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Acciones */
+.card-action {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Botón */
+.btn {
+    padding: 8px 16px;
+    margin: 2px;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-agregar {
+    padding: 8px 16px;
+    margin: 2px;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #0066cc;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.contador span {
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+/*CARRITO*/
+
+.carrito {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.oculto {
+  display: none;
+}
+
+#btnCarrito {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+}
+
+#listaCarrito li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
