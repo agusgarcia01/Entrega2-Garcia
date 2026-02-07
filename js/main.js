@@ -9,9 +9,14 @@ class recital {
         this.banda = banda;
         this.precio = precio;
         this.stock = stock;
+        this.bloqueado = 0;
         this.flyer = flyer;
         this.info = info;
         this.id = ++id;
+    }
+
+    disponible(){
+        return this.stock - this.bloqueado;
     }
 
     vender(cantidad){
@@ -156,8 +161,6 @@ function mostrarCartelera(recitales) {
 
 }
 
-//mostrarCartelera(recitales);
-
 function comprarEntradas(i, cantidad) {
     if (stock[i - 1] >= cantidad && cantidad >= 1) {
         stock[i - 1] -= cantidad;
@@ -166,6 +169,8 @@ function comprarEntradas(i, cantidad) {
     return false;
 }
 
+
+
 ////CARRITO DE COMPRAS////
 
 function agregarAlCarrito(recital, cantidad) {
@@ -173,6 +178,8 @@ function agregarAlCarrito(recital, cantidad) {
         alert("No hay entradas disponibles")
         return;
     }
+
+    recital.bloqueado += cantidad;
 
     const item = carrito.find(i => i.id === recital.id);
     if (item) {
@@ -192,7 +199,7 @@ function eliminarDelCarrito(id){
     const index = carrito.findIndex(item => item.id === id);
     
     if(index !== -1){
-        guardarCarrito();
+        liberarStock(item.id, carrito[index].cantidad);
         carrito.splice(index, 1);
     }
 }
@@ -249,6 +256,8 @@ function mostrarCarrito(){
     }
 
     totalCarrito.textContent = `Total: $${total}`
+
+    console.log(recitales[1]);
 }
 
 listaCarrito.addEventListener("click", (e) =>{
@@ -267,6 +276,8 @@ listaCarrito.addEventListener("click", (e) =>{
 
     if(e.target.classList.contains("carrito-restar")){
         item.cantidad--;
+        liberarStock(item.id, 1);
+
         if(item.cantidad === 0){
             eliminarDelCarrito(id)
         }
@@ -327,8 +338,13 @@ function iniciarTimerVisual(){
 
         const restante = TIEMPO_COMPRA - (Date.now() - data.inicio);
 
-        if(restante<0){
+        if(restante<= 0){
             clearInterval(intervaloTimer);
+
+            carrito.forEach(item=>{
+                liberarStock(item.id, item.cantidad);
+            })
+
             localStorage.removeItem("carrito");
             vaciarCarrito();
             mostrarCarrito();
@@ -391,3 +407,12 @@ function guardarCarrito(){
     localStorage.setItem("carrito", JSON.stringify(data));
 }
 
+/// STOCk
+
+function liberarStock(recitalId, cantidad){
+    const rec = recitales.find(r=> r.id === recitalId);
+    if(rec) {
+        bloqueado -= cantidad;
+        if(rec.bloqueado < 0) rec.bloqueado =0;
+    }
+}
