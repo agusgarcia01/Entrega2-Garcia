@@ -1,16 +1,40 @@
-h1 span {
-    font-size: 2.5rem;
-    background-color: #defc52;
-    padding: 0 0.4rem;
-    font-style: bold;
-    font-weight: 700;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: #defc52;
+    display: flex;
+    
+}
+
+header button {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+header a {
+    display: flex;
+    margin-left: auto;
+}
+
+h1 span {
+    font-size: 2.5rem;
+    padding: 0 0.4rem;
+    font-style: bold;
+    font-weight: 700;
+}
+
+#iniciarSesion {
+    text-decoration: none;
+}
+#iniciarSesion button {
+    background-color: transparent;
+    border: none;
+        cursor: pointer;
 }
 
 /* Contenedor de las cards */
@@ -120,6 +144,15 @@ h1 span {
 
 .carrito {
   position: absolute;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+grid-template-areas:
+  "carrito cruz"
+  "lista lista"
+  "total total"
+  "tiempo tiempo"
+  "vaciar comprar";
+  gap: 0.75rem;
   top: 60px;
   right: 20px;
   width: 300px;
@@ -142,7 +175,48 @@ h1 span {
 }
 
 #listaCarrito li {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
+    
+  grid-area: lista;  
+  display: grid;
+  grid-template-columns: 1fr auto auto auto auto auto;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.h3 {
+    grid-area: carrito;
+}
+#btnCerrar {
+    grid-area: cruz;
+    width: 20px;
+
+}
+#btnComprar {
+    grid-area: comprar;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+#btnVaciar {
+    grid-area: vaciar;
+    width: 100%;
+      display: block;
+  box-sizing: border-box;
+}
+#totalCarrito {
+    font-weight: 600;
+    grid-area: total;
+}
+#timerCarrito {
+    grid-area: tiempo;
+    font-size: 0.8rem;
+}
+
+.carrito-sumar, .carrito-restar, .btn-restar, .btn-sumar {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
 }

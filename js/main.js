@@ -174,7 +174,7 @@ function comprarEntradas(i, cantidad) {
 ////CARRITO DE COMPRAS////
 
 function agregarAlCarrito(recital, cantidad) {
-    if (recital.stock < cantidad) {
+    if (recital.disponible() < cantidad) {
         alert("No hay entradas disponibles")
         return;
     }
@@ -199,7 +199,7 @@ function eliminarDelCarrito(id){
     const index = carrito.findIndex(item => item.id === id);
     
     if(index !== -1){
-        liberarStock(item.id, carrito[index].cantidad);
+        liberarStock(id, carrito[index].cantidad);
         carrito.splice(index, 1);
     }
 }
@@ -269,16 +269,19 @@ listaCarrito.addEventListener("click", (e) =>{
     const item = carrito.find(p => p.id === id);
 
     if(e.target.classList.contains("carrito-sumar")){
+        const rec = recitales.find(r=>r.id===item.id)   
+        if(rec){
             item.cantidad++;
-
+            rec.bloqueado++;
+        } 
     }
 
 
     if(e.target.classList.contains("carrito-restar")){
-        item.cantidad--;
-        liberarStock(item.id, 1);
-
-        if(item.cantidad === 0){
+        if(item.cantidad>1){
+            item.cantidad--;
+            liberarStock(item.id, 1);
+        }else{
             eliminarDelCarrito(id)
         }
     }
@@ -412,7 +415,7 @@ function guardarCarrito(){
 function liberarStock(recitalId, cantidad){
     const rec = recitales.find(r=> r.id === recitalId);
     if(rec) {
-        bloqueado -= cantidad;
+        rec.bloqueado -= cantidad;
         if(rec.bloqueado < 0) rec.bloqueado =0;
     }
 }
