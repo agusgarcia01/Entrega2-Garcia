@@ -48,12 +48,26 @@ h1 span {
 
 /* Card */
 .card {
+    position: relative;
     width: 260px;
     background-color: #d1d1d1;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.agotado {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(216, 0, 0, 0.75);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
 }
 
 /* Hover */
@@ -98,7 +112,7 @@ h1 span {
 }
 
 /* Botón */
-.btn {
+.btn-info {
     padding: 8px 16px;
     margin: 2px;
     background-color: #1e90ff;
@@ -220,3 +234,22 @@ grid-template-areas:
     margin: 0;
     padding: 0;
 }
+
+.disponibilidad {
+    font-weight: 600;
+    margin: 6px 0;
+}
+
+.disponibles {
+    color: #2ecc71; /* verde */
+}
+
+.ultimas {
+    color: #f39c12; /* amarillo */
+}
+
+.agotado-text {
+    color: #e74c3c; /* rojo */
+}
+
+

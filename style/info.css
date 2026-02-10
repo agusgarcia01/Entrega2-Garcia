@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.info-layout {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #181818, #0a0a0a);
+    color: #eaeaea;
+    min-height: 100vh;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+    width: 100%;
+    height: 80px;
+    padding: 0 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #111;
+    border-bottom: 1px solid #222;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 span {
+    color: #e50914;
+    font-weight: bold;
+}
+
+header button {
+    background-color: #e50914;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+header button:hover {
+    opacity: 0.85;
+}
+
+#btnCarrito {
+    background-color: transparent;
+    border: 1px solid #444;
+    font-size: 1rem;
+}
+
+/* =====================
+   CARRITO (overlay)
+===================== */
+.carrito {
+    position: fixed;
+    top: 80px;
+    right: 24px;
+    width: 320px;
+
+    background: #111;
+    border-radius: 14px;
+    padding: 16px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.7);
+    z-index: 200;
+}
+
+.oculto {
+    display: none;
+}
+
+/* =====================
+   MAIN
+===================== */
+body.info-layout main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 24px 64px;
+
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* =====================
+   COLUMNA INFO
+===================== */
+#volver {
+    position: absolute;
+    top: 96px; /* debajo del header */
+    left: 32px;
+
+    background: transparent;
+    border: none;
+    color: #38bdf8;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+    padding: 4px 8px;
+}
+
+#volver:hover {
+    text-decoration: underline;
+}
+
+#titulo {
+    margin: 0 0 12px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+#flyer {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+#precio {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+#info {
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* =====================
+   COLUMNA COMPRA
+===================== */
+.info-container {
+    position: sticky;
+    top: 110px;
+}
+
+.comprar {
+    background: linear-gradient(180deg, #1a1a1a, #101010);
+    border-radius: 18px;
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.6),
+        inset 0 0 0 1px rgba(255,255,255,.05);
+
+    position: relative;
+}
+
+/* =====================
+   AGOTADO
+===================== */
+.agotadoInfo {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    background: #dc2626;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    padding: 6px 14px;
+    border-radius: 999px;
+    display: none;
+}
+
+/* =====================
+   DISPONIBILIDAD
+===================== */
+.disponibilidad {
+    font-size: 0.9rem;
+    color: #22c55e;
+}
+
+.disponibilidad.ultimas {
+    color: #facc15;
+    font-weight: 600;
+}
+
+/* =====================
+   CONTADOR
+===================== */
+.contador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.contador button {
+    width: 44px;
+    height: 44px;
+
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 10px;
+
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.contador button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.cantidad {
+    font-size: 1.3rem;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* =====================
+   ACCIONES
+===================== */
+.card-action button {
+    width: 100%;
+    padding: 14px;
+
+    border-radius: 12px;
+    border: none;
+
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(180deg, #e50914, #86070d);
+    color: #ffffff;
+}
+
+.card-action button:disabled {
+    background: #2a2a2a;
+    color: #777;
+    cursor: not-allowed;
+}
+
+/* =====================
+   BLOQUE INFO IZQUIERDA
+===================== */
+
+#titulo {
+    grid-column: 1 / -1;
+}
+
+.info-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+    body.info-layout main {
+        grid-template-columns: 1fr;
+    }
+
+    .info-container {
+        position: static;
+    }
+}

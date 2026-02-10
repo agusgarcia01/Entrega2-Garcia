@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style2.css">
-    <title>Entrega1 | Garcia</title>
+    <link rel="stylesheet" href="style/info.css">
+    <title>Info Recital</title>
 </head>
-<body>
+
+<body class="info-layout">
 
     <header>
         <h1><span>TicketMaster</span></h1>
@@ -27,15 +28,27 @@
         <p id="timerCarrito" class="timerCarrito">Tiempo restante: 10:00</p>
         <button id="btnVaciar">Vaciar</button>
         <button id="btnComprar">Comprar</button>
+
     </div>
 
     <main>
-        <div id="contenedor"></div>
+        <button id="volver">Volver</button>
+
+        <h1 id="titulo"></h1>
+        <img id="flyer" />
+
+        <div class="info-texto">
+            <p id="precio"></p>
+            <p id="info"></p>
+            
+            <div class="info-container" id="infoContainer"></div>
+        </div>
+
+
     </main>
 
 
+    <script src="js/info.js"></script>
 
-
-    <script src="js/main.js"></script>
 </body>
 </html>
