@@ -301,7 +301,7 @@ function restaurarBloqueadoStock(){
 }
 
 
-/// STOCk
+/// STOCK
 
 function liberarStock(recitalId, cantidad){
     const rec = recitales.find(r=> r.id === recitalId);
